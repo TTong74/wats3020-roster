@@ -1,11 +1,5 @@
 /* JS for WATS 3020 Roster Project */
 
-///////////////////////////////////////////////////
-//////// TODOs ///////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-// Fill in the blanks below to complete each TODO task.                       //
-////////////////////////////////////////////////////////////////////////////////
-
 class Person {
     contructor(name, email) {
         this.name = name;
@@ -16,7 +10,7 @@ class Person {
 
 class Student extends Person {
     contructor(name, email) {
-        super(name, email);
+        Super(name, email);
         this.attendance = [];
     }
     calculateAttendance() {
@@ -35,7 +29,7 @@ class Student extends Person {
 
 class Teacher extends Person {
     contructor(name, email, honorific) {
-        super(name, email);
+        Super(name, email);
         this.honorific = honorific;
     }
 }
@@ -51,11 +45,6 @@ class Course {
         this.students = [];
     }
 
-    /////////////////////////////////////////
-    // TODO: ADD the `addStudent()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-
     addStudent () {
         let name = prompt ("Enter Student Full Name: ", "Tim Tong");
         let email = prompt ("Enter Student Email: ", "ttong@seattleu.edu");
@@ -63,7 +52,6 @@ class Course {
         this.students.push(newStudent);
         updateRoster(this);
     }
-
 
     setTeacher () {
         let name = prompt ("Enter Teacher Full Name: ", "Shawn Rider");
@@ -73,27 +61,15 @@ class Course {
         updateRoster(this);
     }
 
-
-    /////////////////////////////////////////
-    // TODO: ADD `markAttendance()` method /////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // TODO: Create a method to mark a student's attendance called `markAttendance()`.
-    // This method should accept a parameter called `username` containing the
-    // `username` that will match the `username` property on the `Student` object.
-
-    // TODO: The FIRST step to create a functioning `markAttendance()` method is
-    // to retreive the `Student` object out of the `this.students` Array. You
-    // can use the `this.findStudent()` method (provided below) to accomplish
-    // that goal. Note that you will also have to handle two cases: The default
-    // behavior should be to mark the student present. The alternate behavior
-    // should be to mark the student absent.
-
-    // TODO: Now that we have retrieved the specific `Student` object we want
-    // to work with, we can use the appropriate method on the `Student` object
-    // to record the attendance.
-
-
+    markAttendance (username, status = "present") {
+        let foundStudent = this.findStudent(username);
+        if (status === "present") {
+            foundStudent.attendance.push(1);
+        } else {
+            foundStudent.attendance.push(0);
+        }
+        updateRoster(this);
+    }
 
     //////////////////////////////////////////////
     // Methods provided for you -- DO NOT EDIT /////////////////////////////////
@@ -110,22 +86,13 @@ class Course {
     }
 }
 
-/////////////////////////////////////////
-// TODO: Prompt User for Course Info  //////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-//
-// Prompt the user for information to create the Course. In order to create a
-// `Course` object, you must gather the following information:
-//
-// TODO: Prompt the user for the `courseCode` (the number/code of the course, like "WATS 3000").
+let courseCode = prompt ("Enter the course code: ", "WATS 3020");
 
-// TODO: Prompt the user for the `courseTitle` (the name of the course, like "Introduction to JavaScript").
+let courseTitle = prompt ("Enter the course title: ", "Intro to JavaScript");
 
-// TODO: Prompt the user for the  `courseDescription` (the descriptive summary of the course).
+let courseDescription = prompt ("Enter the course description: ", "Learning to code JS");
 
-// Create a new `Course` object instance called `myCourse` using the three data points just collected from the user.
-// TODO: Add in the values for the information supplied by the user above.
-
+let myCourse = new Course (courseCode, courseTitle, courseDescription);
 
 ///////////////////////////////////////////////////
 //////// Main Script /////////////////////////////
