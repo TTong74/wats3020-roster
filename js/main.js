@@ -45,23 +45,23 @@ class Course {
         this.students = [];
     }
 
-    addStudent () {
-        let name = prompt ("Enter Student Full Name: ", "Tim Tong");
-        let email = prompt ("Enter Student Email: ", "ttong@seattleu.edu");
+    addStudent() {
+        let name = prompt("Enter Student Full Name: ", "Tim Tong");
+        let email = prompt("Enter Student Email: ", "ttong@seattleu.edu");
         let newStudent = new Student(name, email);
         this.students.push(newStudent);
         updateRoster(this);
     }
 
-    setTeacher () {
-        let name = prompt ("Enter Teacher Full Name: ", "Shawn Rider");
-        let email = prompt ("Enter Teacher Email: ", "shawnr@seattleu.edu");
-        let honorific = prompt ("Enter Honorific: ", "Prof.");
+    setTeacher() {
+        let name = prompt("Enter Teacher Full Name: ", "Shawn Rider");
+        let email = prompt("Enter Teacher Email: ", "shawnr@seattleu.edu");
+        let honorific = prompt("Enter Honorific: ", "Prof.");
         this.teacher = new Teacher(name, email, honorific);
         updateRoster(this);
     }
 
-    markAttendance (username, status = "present") {
+    markAttendance(username, status = "present") {
         let foundStudent = this.findStudent(username);
         if (status === "present") {
             foundStudent.attendance.push(1);
@@ -86,13 +86,13 @@ class Course {
     }
 }
 
-let courseCode = prompt ("Enter the course code: ", "WATS 3020");
+let courseCode = prompt("Enter the course code: ", "WATS 3020");
 
-let courseTitle = prompt ("Enter the course title: ", "Intro to JavaScript");
+let courseTitle = prompt("Enter the course title: ", "Intro to JavaScript");
 
-let courseDescription = prompt ("Enter the course description: ", "Learning to code JS");
+let courseDescription = prompt("Enter the course description: ", "Learning to code JS");
 
-let myCourse = new Course (courseCode, courseTitle, courseDescription);
+let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
 ///////////////////////////////////////////////////
 //////// Main Script /////////////////////////////
