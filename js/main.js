@@ -1,7 +1,7 @@
 /* JS for WATS 3020 Roster Project */
 
 class Person {
-    contructor(name, email) {
+    constructor(name, email) {
         this.name = name;
         this.email = email;
         this.username = email.split('@')[0];
@@ -9,8 +9,8 @@ class Person {
 }
 
 class Student extends Person {
-    contructor(name, email) {
-        Super(name, email);
+    constructor(name, email) {
+        super(name, email);
         this.attendance = [];
     }
     calculateAttendance() {
@@ -28,8 +28,8 @@ class Student extends Person {
 }
 
 class Teacher extends Person {
-    contructor(name, email, honorific) {
-        Super(name, email);
+    constructor(name, email, honorific) {
+        super(name, email);
         this.honorific = honorific;
     }
 }
