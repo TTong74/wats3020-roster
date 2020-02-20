@@ -35,7 +35,6 @@ class Teacher extends Person {
 }
 
 
-// TODO: Set up our Course class so we can run the whole roster from it.
 class Course {
     constructor(courseCode, courseTitle, courseDescription) {
         this.code = courseCode;
